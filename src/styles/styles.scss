@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.hero-image {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(41, 41, 41);
+  &__text {
+    color: white;
+  }
+}
