@@ -8,7 +8,6 @@ import "../styles/styles.scss"
 
 const IndexPage = () => {
   const [letters, setLetters] = useState("")
-  const [count, setCount] = useState(0)
 
   useEffect(() => {
     typeText()
