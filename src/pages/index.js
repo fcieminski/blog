@@ -15,15 +15,14 @@ const IndexPage = () => {
   }, [])
 
   const typeText = () => {
-    let interval
     let count = 0
     let msg = "Witaj nieznajomy"
     let finalMsg = msg.split("")
-    interval = setInterval(() => {
+    let typeWrite = setInterval(() => {
       setLetters(prevLetters => prevLetters.concat(finalMsg[count]))
       count++
       if (count === msg.length) {
-        clearInterval(interval)
+        clearInterval(typeWrite)
       }
     }, 100)
   }
