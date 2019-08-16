@@ -1,14 +1,19 @@
-import React from "react"
+import React, { useState } from "react"
 
-import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const NotFoundPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const NotFoundPage = () => {
+  const [amount, setAmout] = useState(0)
+
+  return (
+    <div>
+      <SEO title="404: Not found" />
+      <h1>NOT FOUND</h1>
+      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <p>{amount}</p>
+      <button onClick={() => setAmout(amount + 1)}>set amout!</button>
+    </div>
+  )
+}
 
 export default NotFoundPage
