@@ -10,11 +10,12 @@ const IndexPage = () => {
   useEffect(() => {
     typeText()
     return () => {
-      typeText()
+      clearTimeout(typed)
     }
   }, [])
 
   let startPos = 0
+  let typed
   const typeText = () => {
     let cursor = "|"
     let newText = letters
@@ -23,7 +24,7 @@ const IndexPage = () => {
       startPos = 0
       setLetters(letters.substring(0, letters.length))
     } else {
-      setTimeout(typeText, 100)
+      typed = setTimeout(typeText, 100)
     }
   }
 
