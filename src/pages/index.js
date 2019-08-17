@@ -8,22 +8,20 @@ import "../styles/styles.scss"
 import "../styles/home.scss"
 
 const IndexPage = () => {
-  const [letters, setLetters] = useState(
-    "There are only 10 types of people in the world"
-  )
+  const [letters, setLetters] = useState("Front-end okiem Juniora")
 
   useEffect(() => {
     typeText()
   }, [])
 
-  var iArrLength = letters.length
   let startPos = 0
-
   const typeText = () => {
+    let cursor = "|"
     let newText = letters
-    setLetters(letters.substring(0, startPos) + "|")
+    setLetters(letters.substring(0, startPos) + cursor)
     if (startPos++ === newText.length) {
       startPos = 0
+      setLetters(letters.substring(0, letters.length))
     } else {
       setTimeout(typeText, 100)
     }
@@ -34,9 +32,14 @@ const IndexPage = () => {
       {/* <Header /> */}
       <SEO title="Home" />
       <div className="hero-image">
-        <h1 className="hero-image__text">{letters}</h1>
+        <div className="hero-image__text">
+          <h1>{letters}</h1>
+          <p className="hero-image__paragraph">początki z programowaniem</p>
+        </div>
+        <Link className="hero-image__link" to="page-2">
+          <span className="material-icons">expand_more</span>
+        </Link>
       </div>
-      {/* <Link to="/page-2/">Go to page 2</Link> */}
     </div>
   )
 }
