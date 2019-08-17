@@ -1,0 +1,12 @@
+.hero-image {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(41, 41, 41);
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: center;
+  justify-items: end;
+  &__text {
+    color: white;
+  }
+}

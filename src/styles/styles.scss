@@ -1,13 +1,36 @@
+@import url("https://fonts.googleapis.com/css?family=Bitter:400,700|Open+Sans&display=swap");
+
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
-.hero-image {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(41, 41, 41);
-  &__text {
-    color: white;
-  }
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Bitter", serif;
+}
+
+h1,
+h2 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h3,
+h4,
+h5 {
+  font-weight: 700;
+}
+
+p,
+a,
+li,
+div {
+  font-family: "Open Sans", sans-serif;
 }
