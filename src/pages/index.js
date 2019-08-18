@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import SEO from "../components/seo"
 import "../styles/styles.scss"
 import "../styles/home.scss"
-import AniLink from "gatsby-plugin-transition-link/AniLink"
+import Transition from "../components/Transition"
 
 const IndexPage = () => {
   const [letters, setLetters] = useState("Front-end okiem Juniora")
@@ -36,7 +36,7 @@ const IndexPage = () => {
           <h1>{letters}</h1>
           <p className="hero-image__paragraph">początki z programowaniem</p>
         </div>
-        <AniLink
+        <Transition
           cover
           to="/page-2/"
           direction="up"
@@ -45,7 +45,7 @@ const IndexPage = () => {
           className="hero-image__link"
         >
           <span className="material-icons">expand_more</span>
-        </AniLink>
+        </Transition>
       </div>
     </div>
   )
