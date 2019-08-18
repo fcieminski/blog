@@ -37,7 +37,6 @@ const IndexPage = () => {
           <p className="hero-image__paragraph">początki z programowaniem</p>
         </div>
         <Transition
-          cover
           to="/page-2/"
           direction="up"
           duration={1}
