@@ -26,7 +26,7 @@ const BlogPage = () => {
                     <span className="material-icons material-icons--posts">
                       expand_more
                     </span>
-                    <p>{post.title}</p>
+                    <h3>{post.title}</h3>
                   </div>
                   <div className="post__content-description">
                     {post.description.substring(0, 100)} ...read more
