@@ -15,7 +15,7 @@ const BlogPage = () => {
       <Header />
       <main className="main">
         <section>
-          <div>
+          <div className="main__post">
             {posts.map(post => (
               <article className="post">
                 <div className="post__image">
