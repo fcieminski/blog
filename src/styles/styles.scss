@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Bitter:400,700|Open+Sans&display=swap");
+@import "./variables";
 
 * {
   box-sizing: border-box;
@@ -37,4 +38,7 @@ div {
 
 .material-icons {
   font-size: 3rem;
+  &--light {
+    color: $dark-accent;
+  }
 }

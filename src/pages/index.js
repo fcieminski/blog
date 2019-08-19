@@ -37,13 +37,16 @@ const IndexPage = () => {
           <p className="hero-image__paragraph">początki z programowaniem</p>
         </div>
         <Transition
-          to="/page-2/"
+          to="/blog-page/"
           direction="up"
           duration={1}
-          bg="black"
+          bg="#141721"
+          secondBg="#6aa8b1"
           className="hero-image__link"
         >
-          <span className="material-icons">expand_more</span>
+          <span className="material-icons material-icons--light">
+            expand_more
+          </span>
         </Transition>
       </div>
     </div>

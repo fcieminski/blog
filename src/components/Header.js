@@ -1,16 +1,25 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import "../styles/header.scss"
+import me from "../images/12.png"
 
 const Header = () => {
   return (
-    <div className="header">
-      <nav>
-        <Link>Hello</Link>
-        <Link>Hello</Link>
-        <Link>Hello</Link>
+    <header className="header">
+      <nav className="header-nav">
+        <div className="header-nav__me">
+          <div className="header-nav__photo-box">
+            <img src={me} />
+          </div>
+          <h1 className="header-nav__title">Front-end okiem Juniora</h1>
+        </div>
+        <div className="header-nav__links">
+          <Link>Hello</Link>
+          <Link>Hello</Link>
+          <Link>Hello</Link>
+        </div>
       </nav>
-    </div>
+    </header>
   )
 }
 
