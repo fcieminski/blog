@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-import { Link } from "gatsby"
+import { Link, graphql, StaticQuery } from "gatsby"
 
 import SEO from "../components/seo"
 import Header from "../components/Header"
+import Posts from "../components/Posts"
 import "../styles/blogpage.scss"
 
 import { data } from "../components/mockup"
 
 const BlogPage = () => {
-  const [posts, setData] = useState(data)
   return (
     <>
       <SEO title="Page two" />
@@ -16,29 +16,38 @@ const BlogPage = () => {
       <main className="main">
         <section>
           <div className="main__post">
-            {posts.map(post => (
-              <article className="post">
-                <div className="post__image">
-                  <img src={post.image} />
-                </div>
-                <div className="post__content">
-                  <div className="post__content-info-box">
-                    <span className="material-icons material-icons--posts">
-                      expand_more
-                    </span>
-                    <h3>{post.title}</h3>
-                  </div>
-                  <div className="post__content-description">
-                    {post.description.substring(0, 100)} ...read more
-                  </div>
-                </div>
-              </article>
-            ))}
+            <StaticQuery
+              query={query}
+              render={data => {
+                return data.allMarkdownRemark.edges.map(({ node }) => (
+                  <Posts key={node.id} {...node}></Posts>
+                ))
+              }}
+            ></StaticQuery>
           </div>
         </section>
       </main>
     </>
   )
 }
+
+const query = graphql`
+  query MyQuery {
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      edges {
+        node {
+          id
+          frontmatter {
+            author
+            date
+            path
+            title
+          }
+          excerpt(format: PLAIN)
+        }
+      }
+    }
+  }
+`
 
 export default BlogPage

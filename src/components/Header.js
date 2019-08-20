@@ -11,7 +11,7 @@ const Header = () => {
           <div className="header-nav__photo-box">
             <img src={me} />
           </div>
-          <h1 className="header-nav__title">Front-end okiem Juniora</h1>
+          <p className="header-nav__title">Front-end okiem Juniora</p>
         </div>
         <div className="header-nav__links">
           <Link>Hello</Link>
