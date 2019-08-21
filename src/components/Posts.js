@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "gatsby"
 
 const Posts = props => {
@@ -15,8 +15,8 @@ const Posts = props => {
           <h3>{props.frontmatter.title}</h3>
         </div>
         <div className="post__content-description">
-          {props.excerpt.substring(0, 100)}{" "}
-          <Link to={`/${node.frontmatter.path}`}>...read more</Link>
+          {props.excerpt.substring(0, 100)}
+          <Link to={`blog-page/${props.frontmatter.path}`}>...read more</Link>
         </div>
       </div>
     </article>

@@ -1,12 +1,10 @@
-import React, { useState } from "react"
-import { Link, graphql, StaticQuery } from "gatsby"
+import React from "react"
+import { graphql, StaticQuery } from "gatsby"
 
 import SEO from "../components/seo"
 import Header from "../components/Header"
 import Posts from "../components/Posts"
 import "../styles/blogpage.scss"
-
-import { data } from "../components/mockup"
 
 const BlogPage = () => {
   return (
