@@ -5,7 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPost = path.resolve(`./src/pages/blog.js`)
 
-  const postsMd = graphql(`
+  return graphql(`
     {
       allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
         edges {
@@ -34,67 +34,22 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
-  `)
-
-  const images = graphql(`
-    {
-      allFile(filter: { sourceInstanceName: { eq: "images" } }) {
-        edges {
-          node {
-            id
-            childImageSharp {
-              id
-              fluid(maxWidth: 500) {
-                src
-              }
-              original {
-                src
-              }
-            }
-          }
-        }
-      }
-    }
-  `)
-
-  return Promise.all([postsMd, images]).then(([post, image]) => {
-    if (post.errors || image.errors) {
-      throw [post.errors, image.errors]
+  `).then(result => {
+    if (result.errors) {
+      throw result.errors
     }
 
-    let imageData = {}
-    let postsData = {}
+    const posts = result.data.allMarkdownRemark.edges
+    posts.forEach(({ node }) => {
+      const path = `/blog${node.frontmatter.path}`
 
-    image.data.allFile.edges.forEach(({ node }) => {
-      imageData = {
-        fluid: node.childImageSharp.fluid.src,
-        original: node.childImageSharp.original.src,
-      }
-      return imageData
-    })
-
-    const posts = post.data.allMarkdownRemark.edges
-
-    posts.forEach((post, index) => {
-      const previous = index === posts.length - 1 ? null : posts[index + 1].node
-      const next = index === 0 ? null : posts[index - 1].node
-
-      const path = `/blog${post.node.frontmatter.path}`
-      postsData = {
+      createPage({
         path,
         component: blogPost,
         context: {
-          slug: post.node.frontmatter.path,
-          previous,
-          next,
+          slug: node.frontmatter.path,
         },
-      }
-      return postsData
-    })
-
-    createPage({
-      ...postsData,
-      context: { ...postsData.context, image: imageData },
+      })
     })
   })
 }
