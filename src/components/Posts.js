@@ -5,7 +5,7 @@ const Posts = props => {
   return (
     <article className="post">
       <div className="post__image">
-        <img src={props.frontmatter.image} />
+        <img src={props.frontmatter.featuredImage.childImageSharp.fluid.src} />
       </div>
       <div className="post__content">
         <div className="post__content-info-box">
@@ -16,7 +16,7 @@ const Posts = props => {
         </div>
         <div className="post__content-description">
           {props.excerpt.substring(0, 100)}
-          <Link to={`blog-page/${props.frontmatter.path}`}>...read more</Link>
+          <Link to={`blog${props.frontmatter.path}`}>...read more</Link>
         </div>
       </div>
     </article>

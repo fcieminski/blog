@@ -3,43 +3,84 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
   const blogPost = path.resolve(`./src/pages/blog.js`)
-  return graphql(
-    `
-      {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-          edges {
-            node {
-              id
-              fileAbsolutePath
-              frontmatter {
-                author
-                date
-                path
-                title
+
+  const postsMd = graphql(`
+    {
+      allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+        edges {
+          node {
+            id
+            frontmatter {
+              title
+              path
+              date
+              author
+              featuredImage {
+                id
+                absolutePath
+                childImageSharp {
+                  fluid(maxWidth: 600) {
+                    src
+                  }
+                  original {
+                    src
+                  }
+                }
               }
-              excerpt(format: PLAIN)
+            }
+            excerpt
+          }
+        }
+      }
+    }
+  `)
+
+  const images = graphql(`
+    {
+      allFile(filter: { sourceInstanceName: { eq: "images" } }) {
+        edges {
+          node {
+            id
+            childImageSharp {
+              id
+              fluid(maxWidth: 500) {
+                src
+              }
+              original {
+                src
+              }
             }
           }
         }
       }
-    `
-  ).then(result => {
-    if (result.errors) {
-      throw result.errors
+    }
+  `)
+
+  return Promise.all([postsMd, images]).then(([post, image]) => {
+    if (post.errors || image.errors) {
+      throw [post.errors, image.errors]
     }
 
-    // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges
+    let imageData = {}
+    let postsData = {}
+
+    image.data.allFile.edges.forEach(({ node }) => {
+      imageData = {
+        fluid: node.childImageSharp.fluid.src,
+        original: node.childImageSharp.original.src,
+      }
+      return imageData
+    })
+
+    const posts = post.data.allMarkdownRemark.edges
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
       const next = index === 0 ? null : posts[index - 1].node
 
       const path = `/blog${post.node.frontmatter.path}`
-
-      createPage({
+      postsData = {
         path,
         component: blogPost,
         context: {
@@ -47,7 +88,13 @@ exports.createPages = ({ graphql, actions }) => {
           previous,
           next,
         },
-      })
+      }
+      return postsData
+    })
+
+    createPage({
+      ...postsData,
+      context: { ...postsData.context, image: imageData },
     })
   })
 }

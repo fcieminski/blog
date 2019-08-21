@@ -14,9 +14,9 @@ const Header = () => {
           <p className="header-nav__title">Front-end okiem Juniora</p>
         </div>
         <div className="header-nav__links">
-          <Link>Hello</Link>
-          <Link>Hello</Link>
-          <Link>Hello</Link>
+          <Link to="#">Hello</Link>
+          <Link to="#">Hello</Link>
+          <Link to="#">Hello</Link>
         </div>
       </nav>
     </header>

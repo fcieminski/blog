@@ -37,7 +37,7 @@ const IndexPage = () => {
           <p className="hero-image__paragraph">początki z programowaniem</p>
         </div>
         <Transition
-          to="/blog-page/"
+          to="/main-page/"
           direction="up"
           duration={1}
           bg="#141721"

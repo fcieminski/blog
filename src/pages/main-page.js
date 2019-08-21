@@ -31,17 +31,29 @@ const BlogPage = () => {
 
 const query = graphql`
   query MyQuery {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
       edges {
         node {
           id
           frontmatter {
-            author
-            date
-            path
             title
+            path
+            date
+            author
+            featuredImage {
+              id
+              absolutePath
+              childImageSharp {
+                fluid(maxWidth: 600) {
+                  src
+                }
+                original {
+                  src
+                }
+              }
+            }
           }
-          excerpt(format: PLAIN)
+          excerpt
         }
       }
     }
