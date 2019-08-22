@@ -7,18 +7,16 @@ exports.createPages = ({ graphql, actions }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
-            id
+            excerpt
             frontmatter {
-              title
-              path
-              date
               author
+              date
+              path
+              title
               featuredImage {
-                id
-                absolutePath
                 childImageSharp {
                   fluid(maxWidth: 600) {
                     src
@@ -29,7 +27,6 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            excerpt
           }
         }
       }
@@ -38,7 +35,6 @@ exports.createPages = ({ graphql, actions }) => {
     if (result.errors) {
       throw result.errors
     }
-
     const posts = result.data.allMarkdownRemark.edges
     posts.forEach(({ node }) => {
       const path = `/blog${node.frontmatter.path}`
