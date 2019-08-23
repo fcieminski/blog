@@ -10,22 +10,9 @@ exports.createPages = ({ graphql, actions }) => {
       allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
-            excerpt
             frontmatter {
-              author
-              date
               path
               title
-              featuredImage {
-                childImageSharp {
-                  fluid(maxWidth: 600) {
-                    src
-                  }
-                  original {
-                    src
-                  }
-                }
-              }
             }
           }
         }
@@ -44,6 +31,7 @@ exports.createPages = ({ graphql, actions }) => {
         component: blogPost,
         context: {
           slug: node.frontmatter.path,
+          title: node.frontmatter.title,
         },
       })
     })
@@ -53,7 +41,7 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `md`) {
+  if (node.internal.type === `mdx`) {
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `path`,

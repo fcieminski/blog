@@ -4,7 +4,7 @@ import { graphql, StaticQuery } from "gatsby"
 import SEO from "../components/seo"
 import Header from "../components/Header"
 import Posts from "../components/Posts"
-import "../styles/blogpage.scss"
+import "../styles/posthightlight.scss"
 
 const BlogPage = () => {
   return (
@@ -31,18 +31,18 @@ const BlogPage = () => {
 
 const query = graphql`
   query MyQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
-          id
+          html
+          timeToRead
+          excerpt
           frontmatter {
-            title
-            path
-            date
             author
+            date
+            path
+            title
             featuredImage {
-              id
-              absolutePath
               childImageSharp {
                 fluid(maxWidth: 600) {
                   src
@@ -53,7 +53,6 @@ const query = graphql`
               }
             }
           }
-          excerpt
         }
       }
     }

@@ -16,7 +16,9 @@ const Posts = props => {
         </div>
         <div className="post__content-description">
           {props.excerpt.substring(0, 100)}
-          <Link to={`blog${props.frontmatter.path}`}>...read more</Link>
+          <Link state={{ ...props }} to={`blog${props.frontmatter.path}`}>
+            ...read more
+          </Link>
         </div>
       </div>
     </article>
