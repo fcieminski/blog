@@ -42,6 +42,7 @@ const query = graphql`
             date
             path
             title
+            tags
             featuredImage {
               childImageSharp {
                 fluid(maxWidth: 600) {

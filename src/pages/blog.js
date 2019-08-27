@@ -37,10 +37,16 @@ const BlogPost = ({ location: { state: post } }) => {
           alt={frontmatter.title}
         />
       </div>
+
       <article
         dangerouslySetInnerHTML={{ __html: html }}
         className="blog-content"
       />
+      {/* <aside>
+          {frontmatter.tags.map(tag => (
+            <p>{tag}</p>
+          ))}
+        </aside> */}
     </section>
   )
 }

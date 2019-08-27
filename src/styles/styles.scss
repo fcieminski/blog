@@ -14,8 +14,7 @@ h5 {
   font-family: "Bitter", serif;
 }
 
-h1,
-h2 {
+h1 {
   font-weight: 700;
 }
 
@@ -23,10 +22,27 @@ h1 {
   font-size: 60px;
 }
 
+h2,
 h3,
 h4,
 h5 {
   font-weight: 400;
+  padding-top: 15px;
+  position: relative;
+  z-index: 1;
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 1rem;
+    width: 3rem;
+    bottom: -3px;
+    left: -5px;
+    background-color: $light-accent;
+    z-index: -1;
+    transform: rotate(-7deg);
+    border-radius: 4px;
+  }
 }
 
 p,
@@ -34,6 +50,8 @@ a,
 li,
 div {
   font-family: "Open Sans", sans-serif;
+  font-size: 18px;
+  margin: 10px 0 10px 0;
 }
 
 .material-icons {
