@@ -1,6 +1,6 @@
 ---
 title: "Angel and the Badman"
-date: "20.08.2019, 22:00:07"
+date: "20.08.2019"
 author: "Filip Ciemiński"
 path: "/angel-and-the-badman"
 featuredImage: ./image.jpg
@@ -20,8 +20,6 @@ tags:
     "PHP",
   ]
 ---
-
-<h1>Angel and the Badman</h1>
 
 Hi! I'm your first Markdown file in **StackEdit**. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the **file explorer** on the left corner of the navigation bar.
 

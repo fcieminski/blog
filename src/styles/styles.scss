@@ -27,16 +27,20 @@ h3,
 h4,
 h5 {
   font-weight: 400;
-  padding-top: 15px;
   position: relative;
   z-index: 1;
+  line-height: 35px;
+  margin: 32px 0;
+}
+
+h2 {
   &::before {
     content: "";
     display: block;
     position: absolute;
     height: 1rem;
     width: 3rem;
-    bottom: -3px;
+    bottom: 0px;
     left: -5px;
     background-color: $light-accent;
     z-index: -1;
@@ -51,11 +55,20 @@ li,
 div {
   font-family: "Open Sans", sans-serif;
   font-size: 18px;
+}
+
+a,
+li {
   margin: 10px 0 10px 0;
 }
 
+p {
+  margin-bottom: 32px;
+  line-height: 30px;
+}
+
 .material-icons {
-  font-size: 3rem;
+  font-size: 2rem;
   &--light {
     color: $dark-accent;
   }

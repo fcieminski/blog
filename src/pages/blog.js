@@ -27,27 +27,38 @@ const BlogPost = ({ location: { state: post } }) => {
 
   const { frontmatter } = post
   const { html } = post
+  const { timeToRead } = post
 
   return (
-    <section className="blog-section">
-      <div className="image-box">
-        <img
+    <article>
+      <div>
+        <div
           className="image-box__image"
-          src={frontmatter.featuredImage.childImageSharp.fluid.src}
-          alt={frontmatter.title}
+          style={{
+            backgroundImage: `url(${frontmatter.featuredImage.childImageSharp.original.src})`,
+          }}
         />
+        <div className="info__section">
+          <div className="info__post-about">
+            <div className="post-about__icons">
+              <i className="material-icons">watch_later</i>
+              <div className="post-about__text">{`CZAS CZYTANIA ${timeToRead} MINUTY`}</div>
+            </div>
+            <div className="post-about__text">{frontmatter.date}</div>
+          </div>
+          <h1 className="info__post-title">{frontmatter.title}</h1>
+        </div>
       </div>
-
-      <article
-        dangerouslySetInnerHTML={{ __html: html }}
+      <div
         className="blog-content"
+        dangerouslySetInnerHTML={{ __html: html }}
       />
       {/* <aside>
           {frontmatter.tags.map(tag => (
             <p>{tag}</p>
           ))}
         </aside> */}
-    </section>
+    </article>
   )
 }
 
