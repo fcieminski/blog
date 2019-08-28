@@ -36,6 +36,9 @@
       color: $main-color;
       margin-bottom: 10px;
       font-size: 1rem;
+      & h3 {
+        margin: 0;
+      }
     }
     &-description {
       width: 100%;

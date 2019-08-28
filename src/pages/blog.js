@@ -29,16 +29,16 @@ const BlogPost = ({ location: { state: post } }) => {
   const [animateInfo, setAnimateInfo] = useState(false)
 
   useEffect(() => {
-    const scroll = window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 325) {
+    const scroll = () => {
+      if (window.pageYOffset > 400) {
         setAnimateInfo(true)
-      } else if (window.pageYOffset > 600) {
         setScroll(true)
       } else {
         setScroll(false)
         setAnimateInfo(false)
       }
-    })
+    }
+    window.addEventListener("scroll", scroll)
     return () => {
       window.removeEventListener("scroll", scroll)
     }
@@ -67,31 +67,31 @@ const BlogPost = ({ location: { state: post } }) => {
           </div>
           <h1 className="info__post-title">{frontmatter.title}</h1>
         </div>
-        {animateInfo && (
-          <div className="info__section--animate">
-            <div className="info__post-about">
-              <div className="post-about__icons">
-                <i className="material-icons">watch_later</i>
-                <div className="post-about__text">{`CZAS CZYTANIA ${timeToRead} MINUTY`}</div>
-              </div>
-              <div className="post-about__text">{frontmatter.date}</div>
-            </div>
-            <h1 className="info__post-title--animate">{frontmatter.title}</h1>
-          </div>
-        )}
       </div>
       <div
         className="blog-content"
         dangerouslySetInnerHTML={{ __html: html }}
       />
-      {/* <aside>
-          {frontmatter.tags.map(tag => (
-            <p>{tag}</p>
-          ))}
-        </aside> */}
       <PageUp
         style={{ transform: scroll ? "translateX(0%)" : "translateX(300%)" }}
       />
+      <div
+        className={
+          animateInfo
+            ? "info__section--animation"
+            : "info__section--animation-stop"
+        }
+      >
+        <div className="info__section--animate">
+          <div className="info__post-about">
+            <div className="post-about__icons">
+              <i className="material-icons">watch_later</i>
+              <div className="post-about__text">{`CZAS CZYTANIA ${timeToRead} MINUTY`}</div>
+            </div>
+          </div>
+          <h1 className="info__post-title--animate">{frontmatter.title}</h1>
+        </div>
+      </div>
     </article>
   )
 }

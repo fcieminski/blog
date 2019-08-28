@@ -22,22 +22,26 @@
   padding: 30px;
 }
 
+.info__section--animation {
+  opacity: 1;
+  transition: all 0.2s;
+  &-stop {
+    opacity: 0;
+  }
+}
+
 .info__section--animate {
-  transition: all 0.1s;
   position: fixed;
   top: 0;
-  right: 0;
-  width: 100vw;
+  left: 0;
   margin: 0;
-  height: 65px;
-  max-width: 100vw;
+  max-width: 18rem;
   border-radius: 0;
-  background-color: white;
-  padding: 10px 30px 10px 30px;
+  background-color: #ffffff87;
+  padding: 10px;
   z-index: 2;
 }
 .info__post-title--animate {
-  transition: all 0.1s;
   font-size: 1rem;
 }
 
