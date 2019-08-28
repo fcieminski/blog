@@ -77,3 +77,21 @@ p {
     color: $main-color;
   }
 }
+
+.page-up__button {
+  transition: all 0.2s;
+  position: fixed;
+  background-color: $main-color;
+  bottom: 2rem;
+  right: 5rem;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & i {
+    color: $light-shades;
+    cursor: pointer;
+  }
+}
