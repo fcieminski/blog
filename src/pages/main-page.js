@@ -38,6 +38,7 @@ const query = graphql`
           timeToRead
           excerpt
           frontmatter {
+            highlight
             author
             date
             path

@@ -3,7 +3,7 @@ highlight: false
 title: "Angel and the Badman"
 date: "20.08.2019"
 author: "Filip Ciemiński"
-path: "/angel-and-the-badman"
+path: "/angel-and-the-badmanz"
 featuredImage: ./image.jpg
 tags:
   [

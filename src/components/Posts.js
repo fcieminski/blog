@@ -20,6 +20,12 @@ const Posts = props => {
             ...read more
           </Link>
         </div>
+        <div className="post--footer">
+          <i className="material-icons">watch_later</i>
+          <div className="">{`${props.timeToRead}m | ${
+            props.frontmatter.date.split(",")[0]
+          }`}</div>
+        </div>
       </div>
     </article>
   )
