@@ -4,6 +4,7 @@ import { graphql, StaticQuery } from "gatsby"
 import SEO from "../components/seo"
 import Header from "../components/Header"
 import Posts from "../components/Posts"
+import me from "../images/12.png"
 import "../styles/posthightlight.scss"
 
 const BlogPage = () => {
@@ -24,6 +25,19 @@ const BlogPage = () => {
             ></StaticQuery>
           </div>
         </section>
+        <aside className="main__about-section">
+          <div className="about-section__about">
+            <div style={{ backgroundImage: `url(${me})` }}></div>
+            <div>
+              <h2>Lorem, ipsum dolor.</h2>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Molestiae, temporibus.
+              </p>
+            </div>
+          </div>
+          <div className="about-section__tags"></div>
+        </aside>
       </main>
     </>
   )
@@ -35,6 +49,7 @@ const query = graphql`
       edges {
         node {
           html
+          id
           timeToRead
           excerpt
           frontmatter {

@@ -4,9 +4,12 @@ import { Link } from "gatsby"
 const Posts = props => {
   return (
     <article className="post">
-      <div className="post__image">
-        <img src={props.frontmatter.featuredImage.childImageSharp.fluid.src} />
-      </div>
+      <div
+        className="post__image"
+        style={{
+          backgroundImage: `url(${props.frontmatter.featuredImage.childImageSharp.fluid.src})`,
+        }}
+      ></div>
       <div className="post__content">
         <div className="post__content-info-box">
           <span className="material-icons material-icons--posts">
