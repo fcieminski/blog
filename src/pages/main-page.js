@@ -13,7 +13,7 @@ const BlogPage = () => {
       <SEO title="Page two" />
       <Header />
       <main className="main">
-        <section>
+        <section className="main__section">
           <div className="main__post">
             <StaticQuery
               query={query}
@@ -27,12 +27,16 @@ const BlogPage = () => {
         </section>
         <aside className="main__about-section">
           <div className="about-section__about">
-            <div style={{ backgroundImage: `url(${me})` }}></div>
-            <div>
-              <h2>Lorem, ipsum dolor.</h2>
+            <div
+              className="about__photo"
+              style={{ backgroundImage: `url(${me})` }}
+            ></div>
+            <div className="about__text">
+              <h2>Cześć, jestem Filip</h2>
               <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Molestiae, temporibus.
+                Programowaniem fascynuje się od zawsze, a zawodowo zajmuję się
+                nim od niedawna. Przybliżę Ci front-end, jak junior juniorowi,
+                czyli bez niepotrzebnego bólu głowy.
               </p>
             </div>
           </div>

@@ -69,7 +69,7 @@ module.exports = {
       },
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: ["material icons"],
+        fonts: ["material icons", "Montserrat", "Maven Pro"],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
