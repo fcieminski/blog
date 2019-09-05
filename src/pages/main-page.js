@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, StaticQuery, useStaticQuery } from "gatsby"
+import { graphql, StaticQuery, useStaticQuery, Link } from "gatsby"
 
 import SEO from "../components/seo"
 import Header from "../components/Header"
@@ -79,8 +79,17 @@ const BlogPage = () => {
             </div>
           </div>
           <div className="about-section__tags">
-            {data.allMarkdownRemark.group.map(({ fieldValue }) => (
-              <div>{fieldValue}</div>
+            {data.allMarkdownRemark.group.map(({ fieldValue }, index) => (
+              <Link
+                key={index}
+                className="tags"
+                to={`/tags/${fieldValue
+                  .toLowerCase()
+                  .split(".")
+                  .join("-")}`}
+              >
+                {fieldValue}
+              </Link>
             ))}
           </div>
         </aside>
