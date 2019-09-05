@@ -14,6 +14,7 @@ exports.createPages = ({ graphql, actions }) => {
             frontmatter {
               path
               title
+              tags
             }
           }
         }
@@ -27,6 +28,7 @@ exports.createPages = ({ graphql, actions }) => {
 
     posts.forEach(({ node }) => {
       const path = `/blog${node.frontmatter.path}`
+      const tagsArray = []
       createPage({
         path,
         component: blogPost,
@@ -66,6 +68,7 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
   })
+
   return Promise.all([postFetch, tagsFetch])
 }
 

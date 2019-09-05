@@ -1,13 +1,56 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery, useStaticQuery } from "gatsby"
 
 import SEO from "../components/seo"
 import Header from "../components/Header"
 import Posts from "../components/Posts"
 import me from "../images/12.png"
+import Tags from "./tags"
 import "../styles/posthightlight.scss"
 
 const BlogPage = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+        edges {
+          node {
+            html
+            id
+            timeToRead
+            excerpt
+            frontmatter {
+              highlight
+              author
+              date
+              path
+              title
+              tags
+              featuredImage {
+                childImageSharp {
+                  fluid(maxWidth: 600) {
+                    src
+                  }
+                  original {
+                    src
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      site {
+        siteMetadata {
+          title
+          description
+          author
+        }
+      }
+    }
+  `)
   return (
     <>
       <SEO title="Page two" />
@@ -15,14 +58,9 @@ const BlogPage = () => {
       <main className="main">
         <section className="main__section">
           <div className="main__post">
-            <StaticQuery
-              query={query}
-              render={data => {
-                return data.allMarkdownRemark.edges.map(({ node }) => (
-                  <Posts key={node.id} {...node}></Posts>
-                ))
-              }}
-            ></StaticQuery>
+            {data.allMarkdownRemark.edges.map(({ node }) => (
+              <Posts key={node.id} {...node}></Posts>
+            ))}
           </div>
         </section>
         <aside className="main__about-section">
@@ -40,44 +78,15 @@ const BlogPage = () => {
               </p>
             </div>
           </div>
-          <div className="about-section__tags"></div>
+          <div className="about-section__tags">
+            {data.allMarkdownRemark.group.map(({ fieldValue }) => (
+              <div>{fieldValue}</div>
+            ))}
+          </div>
         </aside>
       </main>
     </>
   )
 }
-
-const query = graphql`
-  query MyQuery {
-    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
-      edges {
-        node {
-          html
-          id
-          timeToRead
-          excerpt
-          frontmatter {
-            highlight
-            author
-            date
-            path
-            title
-            tags
-            featuredImage {
-              childImageSharp {
-                fluid(maxWidth: 600) {
-                  src
-                }
-                original {
-                  src
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
 
 export default BlogPage

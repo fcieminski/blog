@@ -82,7 +82,7 @@ export default class Transition extends Component {
             ref={n => (this.cover2 = n)}
             style={{
               position: "fixed",
-              background: this.props.secondBg || "#4b2571",
+              background: this.props.secondbg || "#4b2571",
               top: 0,
               left: 0,
               width: "100vw",

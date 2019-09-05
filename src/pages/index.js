@@ -41,7 +41,7 @@ const IndexPage = () => {
           direction="up"
           duration={1}
           bg="#141721"
-          secondBg="#6aa8b1"
+          secondbg="#6aa8b1"
           className="hero-image__link"
         >
           <span className="material-icons material-icons--light">
