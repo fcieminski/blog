@@ -22,7 +22,7 @@ const Tags = ({ pageContext, data }) => {
                   {title} {node.timeToRead}
                 </p>
                 <div>{node.excerpt}</div>
-                <div>
+                <div className="box__author">
                   <div>{node.frontmatter.author}</div>
                   <div>{node.frontmatter.date}</div>
                 </div>
