@@ -62,6 +62,18 @@ exports.createPages = ({ graphql, actions }) => {
       tags: allMarkdownRemark(limit: 2000) {
         group(field: frontmatter___tags) {
           fieldValue
+          edges {
+            node {
+              excerpt
+              frontmatter {
+                author
+                date
+                title
+                path
+              }
+              timeToRead
+            }
+          }
         }
       }
     }
@@ -81,6 +93,7 @@ exports.createPages = ({ graphql, actions }) => {
         component: tagSite,
         context: {
           tag: tag.fieldValue,
+          postInfo: tag.edges,
         },
       })
     })

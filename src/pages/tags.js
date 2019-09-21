@@ -6,27 +6,31 @@ import { Link, graphql } from "gatsby"
 import "../styles/tagspage.scss"
 
 const Tags = ({ pageContext, data }) => {
-  const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`
+  const { tag, postInfo } = pageContext
+  const { totalCount } = data.allMarkdownRemark
 
   return (
     <Layout>
       <div className="tags">
-        <h1>{tagHeader}</h1>
-        <ul>
-          {edges.map(({ node }) => {
+        <h2>{tag}</h2>
+        <div>
+          {postInfo.map(({ node }) => {
             const { title } = node.frontmatter
             return (
-              <li>
-                <Link to={`/blog/${node.frontmatter.path}`}>{title}</Link>
-              </li>
+              <Link className="tags__box" to={`/blog/${node.frontmatter.path}`}>
+                <p>
+                  {title} {node.timeToRead}
+                </p>
+                <div>{node.excerpt}</div>
+                <div>
+                  <div>{node.frontmatter.author}</div>
+                  <div>{node.frontmatter.date}</div>
+                </div>
+              </Link>
             )
           })}
-        </ul>
-        <Link to="/tags">All tags</Link>
+        </div>
+        <Link to="/main-page/">Powrót</Link>
       </div>
     </Layout>
   )
