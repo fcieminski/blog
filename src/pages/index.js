@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react"
 import SEO from "../components/seo"
 import "../styles/styles.scss"
 import "../styles/home.scss"
-import Transition from "../components/Transition"
+// import Transition from "../components/Transition"
+import { Link } from "gatsby"
 
 const IndexPage = () => {
   const [letters, setLetters] = useState("Front-end okiem Juniora")
@@ -36,7 +37,13 @@ const IndexPage = () => {
           <h1>{letters}</h1>
           <p className="hero-image__paragraph">początki z programowaniem</p>
         </div>
-        <Transition
+        <Link to="/main-page/" className="hero-image__link">
+          <span className="material-icons material-icons--light">
+            expand_more
+          </span>
+        </Link>
+
+        {/* <Transition
           to="/main-page/"
           direction="up"
           duration={1}
@@ -47,7 +54,7 @@ const IndexPage = () => {
           <span className="material-icons material-icons--light">
             expand_more
           </span>
-        </Transition>
+        </Transition> */}
       </div>
     </div>
   )

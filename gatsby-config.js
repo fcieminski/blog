@@ -55,7 +55,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
-    `gatsby-plugin-transition-link`,
+    // `gatsby-plugin-transition-link`, TODO find fix to not propagate transition
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

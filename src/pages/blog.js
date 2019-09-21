@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import PageUp from "../components/utils/PageUp"
 import "../styles/blogpage.scss"
 
-const BlogPost = ({ location: { state: post } }) => {
+const BlogPost = ({ pageContext: { postData: post } }) => {
   const {
     allFile: { edges: info },
   } = useStaticQuery(graphql`

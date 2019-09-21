@@ -11,10 +11,27 @@ exports.createPages = ({ graphql, actions }) => {
       allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
         edges {
           node {
+            html
+            id
+            timeToRead
+            excerpt
             frontmatter {
+              highlight
+              author
+              date
               path
               title
               tags
+              featuredImage {
+                childImageSharp {
+                  fluid(maxWidth: 600) {
+                    src
+                  }
+                  original {
+                    src
+                  }
+                }
+              }
             }
           }
         }
@@ -34,6 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           slug: node.frontmatter.path,
           title: node.frontmatter.title,
+          postData: node,
         },
       })
     })
