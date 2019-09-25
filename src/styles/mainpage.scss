@@ -73,7 +73,7 @@
   border-radius: 0 0 5px 5px;
   overflow: hidden;
   margin: 10px;
-  .post:first-of-type {
+  &:first-of-type {
     max-width: 100%;
     margin-top: 0;
   }
@@ -87,22 +87,19 @@
   .post__content {
     padding: 20px;
     .post__content-info-box {
-      display: flex;
-      align-items: center;
+      margin: 0 0 10px 0;
       color: $main-color;
-      font-size: 1rem;
-      & h3 {
-        margin: 0;
+      font-size: 1.5rem;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 600;
+      &:hover {
+        color: rgb(189, 1, 41);
       }
     }
-    .post-description {
-      width: 100%;
-      height: 100px;
+    .post__content-description {
+      margin-bottom: 15px;
       overflow: hidden;
       color: $gray;
-      & a {
-        margin: 0;
-      }
     }
   }
 }

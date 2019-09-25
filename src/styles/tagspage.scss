@@ -16,16 +16,30 @@
       0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     border-radius: 0 0 5px 5px;
     color: $dark-shades;
-    p {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      padding-bottom: 5px;
-      border-bottom: solid 1px $dark-accent;
-    }
     .box__author {
       display: flex;
-      justify-content: space-between;
       margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .box__title {
+      display: flex;
+      margin-bottom: 1rem;
+      justify-content: space-between;
+      p {
+        margin: 0;
+        font-size: 1.7rem;
+      }
+      font-size: 1rem;
+      .box__title-read {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .material-icons {
+      font-size: 1rem;
+      color: $main-color;
+      margin-right: 5px;
     }
   }
 }

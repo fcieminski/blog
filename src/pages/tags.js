@@ -18,13 +18,17 @@ const Tags = ({ pageContext, data }) => {
             const { title } = node.frontmatter
             return (
               <Link className="tags__box" to={`/blog/${node.frontmatter.path}`}>
-                <p>
-                  {title} {node.timeToRead}
-                </p>
+                <div className="box__title">
+                  <p>{title}</p>
+                  <div className="box__title-read">
+                    <i class="material-icons">watch_later</i>
+                    {node.timeToRead} min
+                  </div>
+                </div>
                 <div>{node.excerpt}</div>
                 <div className="box__author">
-                  <div>{node.frontmatter.author}</div>
-                  <div>{node.frontmatter.date}</div>
+                  <i class="material-icons">calendar_today</i>
+                  {node.frontmatter.date}
                 </div>
               </Link>
             )
@@ -48,6 +52,7 @@ export const pageQuery = graphql`
       totalCount
       edges {
         node {
+          timeToRead
           frontmatter {
             title
             path
