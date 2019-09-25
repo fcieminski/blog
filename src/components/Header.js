@@ -8,15 +8,17 @@ const Header = () => {
     <header className="header">
       <nav className="header-nav">
         <div className="header-nav__me">
-          <div className="header-nav__photo-box">
+          {/* <div className="header-nav__photo-box">
             <img src={me} />
-          </div>
+          </div> */}
           <p className="header-nav__title">Front-end okiem Juniora</p>
         </div>
         <div className="header-nav__links">
-          <Link to="#">Hello</Link>
-          <Link to="#">Hello</Link>
-          <Link to="#">Hello</Link>
+          <Link activeClassName="active__link" to="/main-page">
+            Blog
+          </Link>
+          <Link to="#">O mnie</Link>
+          <Link to="#">Kontakt</Link>
         </div>
       </nav>
     </header>

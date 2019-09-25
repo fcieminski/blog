@@ -37,7 +37,7 @@ const IndexPage = () => {
           <h1>{letters}</h1>
           <p className="hero-image__paragraph">początki z programowaniem</p>
         </div>
-        <Link to="/main-page/" className="hero-image__link">
+        <Link to="/main-page" className="hero-image__link">
           <span className="material-icons material-icons--light">
             expand_more
           </span>

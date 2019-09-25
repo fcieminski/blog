@@ -100,4 +100,19 @@ p {
     color: $light-shades;
     cursor: pointer;
   }
+  &:hover {
+    animation: shake 0.3s;
+  }
+}
+
+@keyframes shake {
+  100% {
+    bottom: 2rem;
+  }
+  50% {
+    bottom: 2.5rem;
+  }
+  0% {
+    bottom: 2rem;
+  }
 }
