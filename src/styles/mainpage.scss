@@ -1,9 +1,7 @@
 @import "./variables";
 
 .main {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 5rem;
+  @include layout;
   display: flex;
   .main__post {
     display: flex;

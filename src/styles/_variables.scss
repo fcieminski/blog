@@ -4,3 +4,9 @@ $light-accent: #6aa8b1;
 $dark-accent: #1a87d0;
 $dark-shades: #141721;
 $gray: #999999;
+
+@mixin layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 5rem;
+}

@@ -17,8 +17,12 @@ const Header = () => {
           <Link activeClassName="active__link" to="/main-page">
             Blog
           </Link>
-          <Link to="#">O mnie</Link>
-          <Link to="#">Kontakt</Link>
+          <Link activeClassName="active__link" to="/about">
+            O mnie
+          </Link>
+          <Link activeClassName="active__link" to="#">
+            Kontakt
+          </Link>
         </div>
       </nav>
     </header>

@@ -1,10 +1,7 @@
 @import "_variables.scss";
 
 .tags {
-  max-width: 1200px;
-  margin: 0 auto;
-  margin-top: 0px;
-  margin-top: 5rem;
+  @include layout;
   .tags__box {
     width: 100%;
     background-color: $light-shades;
