@@ -27,9 +27,12 @@ const BlogPost = ({ pageContext: { postData: post } }) => {
   `)
   const [scroll, setScroll] = useState(false)
   const [animateInfo, setAnimateInfo] = useState(false)
+  const [readingDone, setReadingDone] = useState(false)
+  const [readingTime, setReadingTime] = useState(0)
 
   useEffect(() => {
     const scroll = () => {
+      console.log(readingTime)
       if (window.pageYOffset > 400) {
         setAnimateInfo(true)
         setScroll(true)
@@ -41,6 +44,17 @@ const BlogPost = ({ pageContext: { postData: post } }) => {
     window.addEventListener("scroll", scroll)
     return () => {
       window.removeEventListener("scroll", scroll)
+    }
+  }, [])
+
+  useEffect(() => {
+    let checkReading = setInterval(() => {
+      setReadingTime(prev => {
+        return (prev += 1)
+      })
+    }, 1000)
+    return () => {
+      clearInterval(checkReading)
     }
   }, [])
 
@@ -92,6 +106,7 @@ const BlogPost = ({ pageContext: { postData: post } }) => {
           <h1 className="info__post-title--animate">{frontmatter.title}</h1>
         </div>
       </div>
+      {readingDone && <div className="reading-done">Hello</div>}
     </article>
   )
 }

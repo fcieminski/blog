@@ -92,3 +92,14 @@ blockquote {
     margin-bottom: 0px;
   }
 }
+
+.reading-done {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  transition: all 0.2s;
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  border: 5px solid black;
+}

@@ -9,7 +9,7 @@ const About = () => {
     <Layout>
       <main className="about">
         <div className="about-me">
-          <section className="about-me__info mr-16">
+          <section className="about-me__info">
             <h1>o mnie</h1>
             <p>
               Front-end developer, zapalony podróżnik, fascynat nowoczesnych
@@ -31,6 +31,10 @@ const About = () => {
               Dzisiaj, mogę śmiało nazwać siebie (junior)
               <strong> Front-end developerem i jestem z tego dumny!</strong>
             </p>
+            <i class="material-icons">trip_origin</i>
+            <i class="material-icons">trip_origin</i>
+            <i class="material-icons">trip_origin</i>
+            <i class="material-icons">trip_origin</i>
           </section>
           <section
             style={{ backgroundImage: `url(${me})` }}
