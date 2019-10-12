@@ -3,3 +3,24 @@
 .about {
   @include layout;
 }
+
+.about-me {
+  display: flex;
+  h1 {
+    margin-bottom: 16px;
+  }
+  strong {
+    margin: 0 8px 0 8px;
+    border-bottom: 3px solid $main-color;
+  }
+  .about-me__photo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    flex: 1 1 0;
+  }
+  .about-me__info {
+    flex: 1 1 0;
+    margin-right: 30px;
+  }
+}

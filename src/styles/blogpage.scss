@@ -76,7 +76,10 @@
 .blog-content {
   max-width: 50rem;
   margin: 0 auto;
-  padding: 8px;
+  padding: 16px;
+  strong {
+    border-bottom: 3px solid #05668d;
+  }
 }
 
 blockquote {

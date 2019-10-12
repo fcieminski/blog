@@ -33,21 +33,21 @@ h5 {
   margin: 32px 0;
 }
 
-h2 {
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    height: 1rem;
-    width: 3rem;
-    bottom: 0px;
-    left: -5px;
-    background-color: $light-accent;
-    z-index: -1;
-    transform: rotate(-7deg);
-    border-radius: 4px;
-  }
-}
+// h2 {
+//   &::before {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     height: 1rem;
+//     width: 3rem;
+//     bottom: 0px;
+//     left: -5px;
+//     background-color: $light-accent;
+//     z-index: -1;
+//     transform: rotate(-7deg);
+//     border-radius: 4px;
+//   }
+// }
 
 a {
   text-decoration: none;
@@ -103,6 +103,22 @@ p {
   &:hover {
     animation: shake 0.3s;
   }
+}
+
+.mr-8 {
+  margin-right: 8px;
+}
+
+.mr-16 {
+  margin-right: 16px;
+}
+
+.ml-8 {
+  margin-left: 8px;
+}
+
+.ml-16 {
+  margin-left: 16px;
 }
 
 @keyframes shake {
