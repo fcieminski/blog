@@ -32,7 +32,6 @@ const BlogPost = ({ pageContext: { postData: post } }) => {
 
   useEffect(() => {
     const scroll = () => {
-      console.log(readingTime)
       if (window.pageYOffset > 400) {
         setAnimateInfo(true)
         setScroll(true)
@@ -49,14 +48,16 @@ const BlogPost = ({ pageContext: { postData: post } }) => {
 
   useEffect(() => {
     let checkReading = setInterval(() => {
-      setReadingTime(prev => {
-        return (prev += 1)
-      })
+      setReadingTime(readingTime => readingTime + 1)
     }, 1000)
+    if (readingTime === timeToRead - 1) {
+      clearInterval(checkReading)
+      setReadingDone(true)
+    }
     return () => {
       clearInterval(checkReading)
     }
-  }, [])
+  }, [readingTime])
 
   const { frontmatter } = post
   const { html } = post
@@ -100,13 +101,14 @@ const BlogPost = ({ pageContext: { postData: post } }) => {
           <div className="info__post-about">
             <div className="post-about__icons">
               <i className="material-icons">watch_later</i>
-              <div className="post-about__text">{`CZAS CZYTANIA ${timeToRead} MINUTY`}</div>
+              <div className="post-about__text">{`CZAS CZYTANIA ${timeToRead} ${readingTime} MINUTY`}</div>
             </div>
           </div>
           <h1 className="info__post-title--animate">{frontmatter.title}</h1>
         </div>
       </div>
-      {readingDone && <div className="reading-done">Hello</div>}
+
+      <div className={`reading-done ${readingDone && "thanks"}`}>Hello</div>
     </article>
   )
 }
