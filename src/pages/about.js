@@ -3,6 +3,9 @@ import Layout from "../components/Layout"
 
 import "../styles/about.scss"
 import me from "../images/12.png"
+import Facebook from "../images/icons/facebook.svg"
+import Githublogo from "../images/icons/githublogo.svg"
+import Linkedin from "../images/icons/linkedin.svg"
 
 const About = () => {
   return (
@@ -31,16 +34,34 @@ const About = () => {
               Dzisiaj, mogę śmiało nazwać siebie (junior)
               <strong> Front-end developerem i jestem z tego dumny!</strong>
             </p>
-            <i class="material-icons">trip_origin</i>
-            <i class="material-icons">trip_origin</i>
-            <i class="material-icons">trip_origin</i>
-            <i class="material-icons">trip_origin</i>
           </section>
           <section
             style={{ backgroundImage: `url(${me})` }}
             className="about-me__photo"
           ></section>
         </div>
+        <section className="about-me__contact">
+          <div>
+            <h2>Zostańmy w kontakcie</h2>
+            <p>
+              Nigdy niewiadomo, czy w przyszłości nie będziemy siebie
+              potrzebowali, może chcesz omówić kwestie biznesowe, pogadać o byle
+              czym, lub umówić się na kawę, jestem do Twoje dyspozycji.
+              Znajdziesz mnie na tych kanałach...
+            </p>
+            <div className="contact__links">
+              <a href="" className="links">
+                <Facebook className="icons" />
+              </a>
+              <a href="" className="links">
+                <Githublogo className="icons" />
+              </a>
+              <a href="" className="links">
+                <Linkedin className="icons" />
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
     </Layout>
   )

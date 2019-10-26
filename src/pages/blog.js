@@ -107,7 +107,6 @@ const BlogPost = ({ pageContext: { postData: post } }) => {
           <h1 className="info__post-title--animate">{frontmatter.title}</h1>
         </div>
       </div>
-
       <div className={`reading-done ${readingDone && "thanks"}`}>Hello</div>
     </article>
   )
